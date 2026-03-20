@@ -23,15 +23,52 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--text); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
-  .page { width: 794px; margin: 36px auto 80px; background: var(--card); border-radius: 20px; overflow: hidden; box-shadow: 0 8px 48px rgba(94,139,255,0.10), 0 2px 8px rgba(0,0,0,0.06); }
+  .page {
+    width: 794px;
+    margin: 36px auto 80px;
+    background: var(--card);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 48px rgba(94,139,255,0.10), 0 2px 8px rgba(0,0,0,0.06);
+  }
 
   /* BANNER */
-  .banner { background: var(--dark); padding: 40px 52px 36px; display: flex; flex-direction: column; position: relative; overflow: hidden; }
-  .banner::after { content: ''; position: absolute; top: -80px; right: -80px; width: 320px; height: 320px; background: radial-gradient(circle, rgba(185,104,255,0.15) 0%, transparent 65%); pointer-events: none; }
-  .banner::before { content: ''; position: absolute; bottom: -60px; left: 25%; width: 240px; height: 240px; background: radial-gradient(circle, rgba(94,139,255,0.12) 0%, transparent 65%); pointer-events: none; }
-  .banner-logos { display: flex; align-items: flex-end; margin-bottom: 28px; position: relative; z-index: 1; }
+  .banner {
+    background: var(--dark);
+    padding: 40px 52px 36px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+  .banner::after {
+    content: '';
+    position: absolute; top: -80px; right: -80px;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(185,104,255,0.15) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .banner::before {
+    content: '';
+    position: absolute; bottom: -60px; left: 25%;
+    width: 240px; height: 240px;
+    background: radial-gradient(circle, rgba(94,139,255,0.12) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .banner-logos {
+    display: flex;
+    align-items: flex-end;
+    gap: 0;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+  }
   .banner-logo-block { display: flex; flex-direction: column; }
-  .banner-logo-block + .banner-logo-block { padding-left: 24px; margin-left: 24px; border-left: 1px solid rgba(255,255,255,0.12); }
+  .banner-logo-block + .banner-logo-block {
+    padding-left: 24px;
+    margin-left: 24px;
+    border-left: 1px solid rgba(255,255,255,0.12);
+  }
   .banner-logo-label { font-size: 9px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 8px; }
   .banner-logo-block img { height: 36px; object-fit: contain; display: block; }
   .banner-subject-wrap { position: relative; z-index: 1; }
@@ -48,15 +85,14 @@
   .section-label-icon i { font-size: 12px; color: #fff; }
   .section-label-text { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--sub); }
   .section-label-line { flex: 1; height: 1px; background: var(--border); }
-  .spacer { height: 32px; }
 
-  /* TABLE — desktop */
+  /* TABLE */
   .tbl-wrap { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 10px; }
   table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
   thead tr { background: var(--dark); }
   thead th { padding: 10px 18px; color: rgba(255,255,255,0.4); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; text-align: left; }
   thead th.r { text-align: right; }
-  tbody tr { border-bottom: 1px solid var(--border); background: #fff; }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; background: #fff; }
   tbody tr:last-child { border-bottom: none; }
   tbody tr:hover { background: #fafafa; }
   tbody td { padding: 13px 18px; color: var(--sub); vertical-align: middle; }
@@ -68,21 +104,7 @@
   .total-row-label { font-size: 11px; font-weight: 700; color: var(--text); text-transform: uppercase; letter-spacing: 0.5px; }
   .total-row-price { font-size: 15px; font-weight: 800; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
-  /* CARD LIST — mobile only, hidden on desktop */
-  .card-list { display: none; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 10px; }
-  .card-item { background: #fff; padding: 14px 16px; border-bottom: 1px solid var(--border); }
-  .card-item:last-child { border-bottom: none; }
-  .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 6px; }
-  .card-name { font-weight: 700; font-size: 13px; color: var(--text); line-height: 1.3; }
-  .card-price { font-weight: 800; font-size: 14px; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; white-space: nowrap; flex-shrink: 0; }
-  .card-note { font-size: 10.5px; color: var(--muted); margin-bottom: 8px; line-height: 1.4; }
-  .card-meta { display: flex; gap: 16px; }
-  .card-meta-item { display: flex; flex-direction: column; gap: 2px; }
-  .card-meta-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
-  .card-meta-value { font-size: 11.5px; font-weight: 600; color: var(--sub); }
-  .card-total { background: linear-gradient(90deg, rgba(94,139,255,0.06), rgba(185,104,255,0.06)); padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; border-top: 1.5px solid var(--border); }
-  .card-total-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text); }
-  .card-total-price { font-size: 15px; font-weight: 800; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .spacer { height: 32px; }
 
   /* SUMMARY */
   .summary { background: var(--dark); border-radius: 14px; padding: 28px 32px; display: flex; justify-content: space-between; align-items: center; margin-top: 36px; position: relative; overflow: hidden; }
@@ -114,33 +136,83 @@
   .export-btn i { font-size: 12px; }
   .export-btn:hover { border-color: var(--blue); color: var(--blue); background: rgba(94,139,255,0.04); }
 
-  /* MOBILE */
-  @media (max-width: 820px) {
-    .page { width: 100%; margin: 0; border-radius: 0; box-shadow: none; }
-    .banner { padding: 28px 20px; }
-    .body { padding: 28px 20px 40px; }
-    /* swap table ↔ cards */
-    .tbl-wrap { display: none; }
-    .card-list { display: block; }
-    .summary { flex-direction: column; gap: 20px; padding: 24px 20px; }
-    .summary-right { text-align: left; width: 100%; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px; }
-    .summary-amount { font-size: 28px; }
-    .export-bar { flex-direction: column; }
-    .export-btn { justify-content: center; }
-    .banner-subject { font-size: 17px; }
-  }
+  @media screen and (max-width: 860px) {
+    .page { width: 100%; margin: 0; border-radius: 0; }
+    .banner, .body { padding: 24px 16px; }
+    .summary { flex-direction: column; gap: 20px; }
+    .summary-right { text-align: left; }
 
+    /* Tabulka: skryj hlavičku a prostřední sloupce */
+    thead { display: none; }
+    table { display: block; }
+    tbody { display: block; }
+
+    /* Každý řádek = dvouřádkový card */
+    tbody tr {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      background: #fff;
+      gap: 10px;
+    }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: #fafafa; }
+
+    /* Skryj všechny td kromě prvního a posledního */
+    tbody td { display: none; padding: 0; }
+    tbody td:first-child { display: block; flex: 1; min-width: 0; }
+    tbody td:last-child  { display: block; flex-shrink: 0; text-align: right; }
+
+    /* Total row: colspan td je "first", price td je "last" */
+    .total-row td { background: linear-gradient(90deg, rgba(94,139,255,0.06), rgba(185,104,255,0.06)) !important; border-top: 1.5px solid var(--border) !important; }
+    .total-row td:first-child { display: block; flex: 1; }
+    .total-row td:last-child  { display: block; }
+
+    /* Zabraň ořezání dlouhých poznámek */
+    .td-note { white-space: normal; }
+    .td-name { font-size: 12px; }
+    .td-note { font-size: 10px; }
+
+    /* Celková cena vpravo */
+    tbody td:last-child .td-price,
+    tbody td:last-child { font-size: 13px; font-weight: 700; }
+  }
   @media print {
     .export-bar { display: none; }
-    .card-list { display: none !important; }
-    .tbl-wrap { display: block !important; }
     body { background: #fff; }
     .page { margin: 0; border-radius: 0; box-shadow: none; width: 100%; }
-    @page { margin: 0; }
+    @page { margin: 10mm; size: A4; }
+
+    /* Oprava gradient textu — prohlížeče ho v tisku zobrazují jako obtahy */
+    .td-price,
+    .total-row-price,
+    .summary-amount,
+    .grad-line { background: none !important; }
+
+    .td-price,
+    .total-row-price {
+      -webkit-text-fill-color: #5E8BFF !important;
+      background: none !important;
+    }
+    .summary-amount {
+      -webkit-text-fill-color: #fff !important;
+      background: none !important;
+    }
+    .section-label-icon {
+      background: #5E8BFF !important;
+    }
+    .grad-line {
+      background: #5E8BFF !important;
+      height: 3px;
+      display: block;
+    }
   }
 </style>
 </head>
 <body>
+
 <div class="page">
 
   <div class="banner">
@@ -165,14 +237,11 @@
 
   <div class="body">
 
-    <!-- ── PRODUKCE ── -->
     <div class="section-label">
       <div class="section-label-icon"><i class="fas fa-video"></i></div>
       <div class="section-label-text">Produkce — natáčení</div>
       <div class="section-label-line"></div>
     </div>
-
-    <!-- desktop table -->
     <div class="tbl-wrap">
       <table>
         <thead><tr>
@@ -180,52 +249,24 @@
         </tr></thead>
         <tbody>
           <tr>
-            <td><div class="td-name">Natáčení na místě</div><span class="td-note">Příprava, realizace, technické vybavení</span></td>
+            <td><div class="td-name">Natáčení na místě</div><span class="td-note">Příprava, realizace, technické vybavení<br>Cena za natáčecí akci: standardně <strong>8 500 Kč</strong>. Pro krátké natáčení (1–2 lokality v rámci Moravskoslezského kraje): <strong>4 500 Kč</strong>.</span></td>
             <td>1 návštěva</td><td class="r">8 500 Kč</td><td class="r td-price">8 500 Kč</td>
           </tr>
           <tr>
             <td><div class="td-name">Cestovné</div><span class="td-note">Účtováno dle skutečně ujeté vzdálenosti (tam i zpět)</span></td>
-            <td>km</td><td class="r">10 Kč / km</td><td class="r" style="color:var(--muted);font-weight:600;">dle km</td>
+            <td>km</td><td class="r">7,50 Kč / km</td><td class="r" style="color:var(--muted);font-weight:600;">dle km</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <!-- mobile cards -->
-    <div class="card-list">
-      <div class="card-item">
-        <div class="card-top">
-          <div class="card-name">Natáčení na místě</div>
-          <div class="card-price">8 500 Kč</div>
-        </div>
-        <div class="card-note">Příprava, realizace, technické vybavení</div>
-        <div class="card-meta">
-          <div class="card-meta-item"><div class="card-meta-label">Jednotka</div><div class="card-meta-value">1 návštěva</div></div>
-          <div class="card-meta-item"><div class="card-meta-label">Cena / jedn.</div><div class="card-meta-value">8 500 Kč</div></div>
-        </div>
-      </div>
-      <div class="card-item">
-        <div class="card-top">
-          <div class="card-name">Cestovné</div>
-          <div class="card-price" style="background:none;-webkit-text-fill-color:var(--muted);color:var(--muted);">dle km</div>
-        </div>
-        <div class="card-note">Účtováno dle skutečně ujeté vzdálenosti (tam i zpět)</div>
-        <div class="card-meta">
-          <div class="card-meta-item"><div class="card-meta-label">Jednotka</div><div class="card-meta-value">km</div></div>
-          <div class="card-meta-item"><div class="card-meta-label">Cena / jedn.</div><div class="card-meta-value">10 Kč / km</div></div>
-        </div>
-      </div>
-    </div>
-
     <div class="spacer"></div>
 
-    <!-- ── POSTPRODUKCE ── -->
     <div class="section-label">
       <div class="section-label-icon"><i class="fas fa-film"></i></div>
       <div class="section-label-text">Postprodukce — střih &amp; distribuce</div>
       <div class="section-label-line"></div>
     </div>
-
     <div class="tbl-wrap">
       <table>
         <thead><tr>
@@ -233,11 +274,11 @@
         </tr></thead>
         <tbody>
           <tr>
-            <td><div class="td-name">Střih videa + zveřejnění na sociální síti</div><span class="td-note">Střih záznamu, barevné korekce, přechody a publikace na sociálních sítích</span></td>
+            <td><div class="td-name">Střih videa + zveřejnění na sociální síti</div><span class="td-note">Editace záznamu, titulky, formátování pro platformu</span></td>
             <td>1 video</td><td class="r">2 000 Kč</td><td class="r td-price">2 000 Kč</td>
           </tr>
           <tr>
-            <td><div class="td-name">Hudební podklad + náhledový obrázek</div><span class="td-note">Hudba vytvořená na míru obsahu, grafický thumbnail optimalizovaný pro sítě</span></td>
+            <td><div class="td-name">Hudební podklad + náhledový obrázek</div><span class="td-note">Licencovaná hudba, grafický thumbnail</span></td>
             <td>1 video</td><td class="r">1 000 Kč</td><td class="r td-price">1 000 Kč</td>
           </tr>
           <tr>
@@ -252,46 +293,13 @@
       </table>
     </div>
 
-    <div class="card-list">
-      <div class="card-item">
-        <div class="card-top"><div class="card-name">Střih videa + zveřejnění na sociální síti</div><div class="card-price">2 000 Kč</div></div>
-        <div class="card-note">Střih záznamu, barevné korekce, přechody a publikace na sociálních sítích</div>
-        <div class="card-meta">
-          <div class="card-meta-item"><div class="card-meta-label">Jednotka</div><div class="card-meta-value">1 video</div></div>
-          <div class="card-meta-item"><div class="card-meta-label">Cena / jedn.</div><div class="card-meta-value">2 000 Kč</div></div>
-        </div>
-      </div>
-      <div class="card-item">
-        <div class="card-top"><div class="card-name">Hudební podklad + náhledový obrázek</div><div class="card-price">1 000 Kč</div></div>
-        <div class="card-note">Hudba vybraná na míru obsahu, grafický thumbnail optimalizovaný pro sítě</div>
-        <div class="card-meta">
-          <div class="card-meta-item"><div class="card-meta-label">Jednotka</div><div class="card-meta-value">1 video</div></div>
-          <div class="card-meta-item"><div class="card-meta-label">Cena / jedn.</div><div class="card-meta-value">1 000 Kč</div></div>
-        </div>
-      </div>
-      <div class="card-item">
-        <div class="card-top"><div class="card-name">Licence střihacího programu</div><div class="card-price">700 Kč</div></div>
-        <div class="card-note">Měsíční podíl nákladů na software</div>
-        <div class="card-meta">
-          <div class="card-meta-item"><div class="card-meta-label">Jednotka</div><div class="card-meta-value">měsíc</div></div>
-          <div class="card-meta-item"><div class="card-meta-label">Cena / jedn.</div><div class="card-meta-value">700 Kč</div></div>
-        </div>
-      </div>
-      <div class="card-total">
-        <div class="card-total-label">Postprodukce celkem / 1 video</div>
-        <div class="card-total-price">3 700 Kč</div>
-      </div>
-    </div>
-
     <div class="spacer"></div>
 
-    <!-- ── MĚSÍČNÍ PŘEHLED ── -->
     <div class="section-label">
       <div class="section-label-icon"><i class="fas fa-calendar-alt"></i></div>
       <div class="section-label-text">Měsíční přehled — standardní rozsah</div>
       <div class="section-label-line"></div>
     </div>
-
     <div class="tbl-wrap">
       <table>
         <thead><tr>
@@ -311,12 +319,12 @@
             <td>1 měsíc</td><td class="r">700 Kč</td><td class="r td-price">700 Kč</td>
           </tr>
           <tr>
-            <td><div class="td-name">Natáčení na místě</div><span class="td-note">Standardně 2× měsíčně — počet upravujeme dle potřeby</span></td>
+            <td><div class="td-name">Natáčení na místě</div><span class="td-note">Standardně 2× měsíčně — počet upravujeme dle potřeby. Cena za natáčecí akci: 8 500 Kč (krátké natáčení 1–2 lokalit v rámci Moravskoslezského kraje: 4 500 Kč).</span></td>
             <td>2 návštěvy</td><td class="r">8 500 Kč</td><td class="r td-price">17 000 Kč</td>
           </tr>
           <tr>
             <td><div class="td-name">Cestovné</div></td>
-            <td>dle km</td><td class="r">10 Kč / km</td><td class="r" style="color:var(--muted);font-weight:600;">dle km</td>
+            <td>dle km</td><td class="r">7,50 Kč / km</td><td class="r" style="color:var(--muted);font-weight:600;">dle km</td>
           </tr>
           <tr class="total-row">
             <td colspan="3"><span class="total-row-label">Celkem / měsíc (bez cestovného)</span></td>
@@ -326,81 +334,52 @@
       </table>
     </div>
 
-    <div class="card-list">
-      <div class="card-item">
-        <div class="card-top"><div class="card-name">Střih videa + zveřejnění</div><div class="card-price">8 000 Kč</div></div>
-        <div class="card-meta">
-          <div class="card-meta-item"><div class="card-meta-label">Počet</div><div class="card-meta-value">4 videa</div></div>
-          <div class="card-meta-item"><div class="card-meta-label">Cena / jedn.</div><div class="card-meta-value">2 000 Kč</div></div>
-        </div>
-      </div>
-      <div class="card-item">
-        <div class="card-top"><div class="card-name">Hudební podklad + náhledový obrázek</div><div class="card-price">4 000 Kč</div></div>
-        <div class="card-meta">
-          <div class="card-meta-item"><div class="card-meta-label">Počet</div><div class="card-meta-value">4 videa</div></div>
-          <div class="card-meta-item"><div class="card-meta-label">Cena / jedn.</div><div class="card-meta-value">1 000 Kč</div></div>
-        </div>
-      </div>
-      <div class="card-item">
-        <div class="card-top"><div class="card-name">Licence střihacího programu</div><div class="card-price">700 Kč</div></div>
-        <div class="card-meta">
-          <div class="card-meta-item"><div class="card-meta-label">Počet</div><div class="card-meta-value">1 měsíc</div></div>
-          <div class="card-meta-item"><div class="card-meta-label">Cena / jedn.</div><div class="card-meta-value">700 Kč</div></div>
-        </div>
-      </div>
-      <div class="card-item">
-        <div class="card-top"><div class="card-name">Natáčení na místě</div><div class="card-price">17 000 Kč</div></div>
-        <div class="card-note">Standardně 2× měsíčně — počet upravujeme dle potřeby</div>
-        <div class="card-meta">
-          <div class="card-meta-item"><div class="card-meta-label">Počet</div><div class="card-meta-value">2 návštěvy</div></div>
-          <div class="card-meta-item"><div class="card-meta-label">Cena / jedn.</div><div class="card-meta-value">8 500 Kč</div></div>
-        </div>
-      </div>
-      <div class="card-item">
-        <div class="card-top"><div class="card-name">Cestovné</div><div class="card-price" style="background:none;-webkit-text-fill-color:var(--muted);color:var(--muted);">dle km</div></div>
-        <div class="card-meta">
-          <div class="card-meta-item"><div class="card-meta-label">Počet</div><div class="card-meta-value">dle km</div></div>
-          <div class="card-meta-item"><div class="card-meta-label">Cena / jedn.</div><div class="card-meta-value">10 Kč / km</div></div>
-        </div>
-      </div>
-      <div class="card-total">
-        <div class="card-total-label">Celkem / měsíc (bez cestovného)</div>
-        <div class="card-total-price">29 700 Kč</div>
-      </div>
-    </div>
-
-    <!-- SUMMARY -->
     <div class="summary">
       <div class="summary-left">
         <div class="summary-title">Složení měsíční ceny</div>
         <div class="summary-rows">
-          <div class="summary-row"><div class="summary-row-dot"></div><div class="summary-row-text">Postprodukce 4 videa (fixní) — <strong>12 700 Kč</strong></div></div>
-          <div class="summary-row"><div class="summary-row-dot"></div><div class="summary-row-text">Natáčení 2× (standardní) — <strong>17 000 Kč</strong></div></div>
-          <div class="summary-row"><div class="summary-row-dot"></div><div class="summary-row-text">Cestovné — <strong>10 Kč / km</strong></div></div>
+          <div class="summary-row">
+            <div class="summary-row-dot"></div>
+            <div class="summary-row-text">Postprodukce 4 videa (fixní) — <strong>12 700 Kč</strong></div>
+          </div>
+          <div class="summary-row">
+            <div class="summary-row-dot"></div>
+            <div class="summary-row-text">Natáčení 2× (standardní) — <strong>17 000 Kč</strong></div>
+          </div>
+          <div class="summary-row">
+            <div class="summary-row-dot"></div>
+            <div class="summary-row-text">Cestovné — <strong>7,50 Kč / km</strong></div>
+          </div>
         </div>
       </div>
       <div class="summary-right">
         <div class="summary-label">Celkem / měsíc</div>
         <div class="summary-amount">29 700 Kč</div>
-        <div class="summary-sub">+ cestovné <strong>10 Kč / km</strong></div>
+        <div class="summary-sub">+ cestovné <strong>7,50 Kč / km</strong></div>
       </div>
     </div>
 
-    <!-- NOTE -->
     <div class="note-box">
       <div class="note-title"><i class="fas fa-info-circle" style="margin-right:6px"></i>Podmínky nabídky</div>
       <ul class="note-list">
         <li>Ceny jsou uvedeny bez DPH. Nejsme plátci DPH.</li>
         <li>Počet natáčení v měsíci se upravuje dle aktuální potřeby — standardní rozsah jsou 2 návštěvy.</li>
-        <li>Cestovné je účtováno dle skutečně ujeté vzdálenosti (tam i zpět) sazbou 10 Kč / km.</li>
+        <li>Cestovné je účtováno dle skutečně ujeté vzdálenosti (tam i zpět) sazbou 7,50 Kč / km.</li>
+        <li>Cena natáčení je za natáčecí akci: standardně 8 500 Kč. Pro krátká natáčení (1–2 lokality v rámci Moravskoslezského kraje): 4 500 Kč za akci.</li>
         <li>Platební podmínky a harmonogram budou upřesněny při potvrzení objednávky.</li>
       </ul>
     </div>
 
-    <!-- EXPORT -->
     <div class="export-bar">
-      <button class="export-btn" onclick="exportCSV()"><i class="fas fa-file-csv"></i> Exportovat CSV</button>
-      <button class="export-btn" onclick="exportXML()"><i class="fas fa-file-code"></i> Exportovat XML</button>
+      <button class="export-btn" onclick="exportPDF()">
+        <i class="fas fa-file-pdf"></i> Uložit jako PDF
+      </button>
+      <button class="export-btn" onclick="exportCSV()">
+        <i class="fas fa-table"></i> Export do Excelu
+      </button>
+      <button class="export-btn" onclick="exportXML()">
+        <i class="fas fa-file-code"></i> Export do XML
+      </button>
     </div>
 
   </div>
@@ -409,35 +388,48 @@
 <script>
 function exportCSV() {
   const rows = [];
-  rows.push(["CENOVÁ NABÍDKA – Stebex pro Build Synergy","","","",""]);
-  rows.push(["Předmět:","Produkce a postprodukce krátkých videí","","",""]);
+  rows.push(["CENOVÁ NABÍDKA – Stebex pro Build Synergy", "", "", "", ""]);
+  rows.push(["Předmět:", "Produkce a postprodukce krátkých videí", "", "", ""]);
   rows.push([]);
-  const sec = t => { rows.push([]); rows.push([t.toUpperCase(),"","","",""]); rows.push(["Položka","Jednotka","Cena / jedn. (Kč)","Počet","Celkem (Kč)"]); };
-  const row = (p,j,c,poc,cel) => rows.push([p,j,c??"",poc??"dle km",cel??"dle km"]);
+
+  const sec = (title) => {
+    rows.push([]);
+    rows.push([title.toUpperCase(), "", "", "", ""]);
+    rows.push(["Položka", "Jednotka", "Cena / jedn. (Kč)", "Počet", "Celkem (Kč)"]);
+  };
+  const row = (p, j, c, poc, cel) => rows.push([p, j, c ?? "", poc ?? "dle km", cel ?? "dle km"]);
+
   sec("1. Produkce — natáčení");
-  row("Natáčení na místě","návštěva",8500,1,8500);
-  row("Cestovné","km",10,"dle km","dle km");
+  row("Natáčení na místě", "návštěva", 8500, 1, 8500);
+  row("Cestovné", "km", 7.5, "dle km", "dle km");
+
   sec("2. Postprodukce — střih & distribuce (za 1 video)");
-  row("Střih videa + zveřejnění na sociální síti","video",2000,1,2000);
-  row("Hudební podklad + náhledový obrázek","video",1000,1,1000);
-  row("Licence střihacího programu","měsíc",700,1,700);
-  rows.push(["MEZISOUČET – postprodukce / 1 video","","","",3700]);
+  row("Střih videa + zveřejnění na sociální síti", "video", 2000, 1, 2000);
+  row("Hudební podklad + náhledový obrázek", "video", 1000, 1, 1000);
+  row("Licence střihacího programu", "měsíc", 700, 1, 700);
+  rows.push(["MEZISOUČET – postprodukce / 1 video", "", "", "", 3700]);
+
   sec("3. Měsíční přehled — standardní rozsah");
-  row("Střih videa + zveřejnění","video",2000,4,8000);
-  row("Hudební podklad + náhledový obrázek","video",1000,4,4000);
-  row("Licence střihacího programu","měsíc",700,1,700);
-  row("Natáčení na místě (2× standardně)","návštěva",8500,2,17000);
-  row("Cestovné","km",10,"dle km","dle km");
-  rows.push(["CELKEM / MĚSÍC (bez cestovného)","","","",29700]);
-  rows.push([]); rows.push(["PODMÍNKY"]);
+  row("Střih videa + zveřejnění na sociální síti", "video", 2000, 4, 8000);
+  row("Hudební podklad + náhledový obrázek", "video", 1000, 4, 4000);
+  row("Licence střihacího programu", "měsíc", 700, 1, 700);
+  row("Natáčení na místě (standardně 2× měsíčně)", "návštěva", 8500, 2, 17000);
+  row("Cestovné", "km", 7.5, "dle km", "dle km");
+  rows.push(["CELKEM / MĚSÍC (bez cestovného)", "", "", "", 29700]);
+
+  rows.push([]);
+  rows.push(["PODMÍNKY"]);
   rows.push(["Ceny jsou bez DPH. Nejsme plátci DPH."]);
-  rows.push(["Standardní počet natáčení: 2× měsíčně, upravitelné dle potřeby."]);
-  rows.push(["Cestovné: 10 Kč/km, tam i zpět."]);
-  const csv = rows.map(r=>(r||[]).map(v=>`"${String(v).replace(/"/g,'""')}"`).join(";")).join("\n");
-  dl("stebex-cenova-nabidka-2026.csv","text/csv;charset=utf-8;","\uFEFF"+csv);
+  rows.push(["Počet natáčení dle aktuální potřeby — standard 2× měsíčně."]);
+  rows.push(["Cestovné: 7,50 Kč/km, tam i zpět."]);
+  rows.push(["Cena natáčení: standardně 8 500 Kč/návštěva. V MSK při 1–2 lokalitách: 4 500 Kč/návštěva."]);
+
+  const csv = rows.map(r => (r || []).map(v => `"${String(v).replace(/"/g, '""')}"`).join(";")).join("\n");
+  dl("stebex-cenova-nabidka-2026.csv", "text/csv;charset=utf-8;", "\uFEFF" + csv);
 }
+
 function exportXML() {
-  const x = [
+  const lines = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<cenova_nabidka>',
     '  <dodavatel>Stebex</dodavatel>',
@@ -446,33 +438,44 @@ function exportXML() {
     '  <polozky>',
     '    <sekce nazev="Produkce – natáčení">',
     '      <polozka><nazev>Natáčení na místě</nazev><jednotka>návštěva</jednotka><cena_jedn>8500</cena_jedn><pocet>1</pocet><celkem>8500</celkem></polozka>',
-    '      <polozka><nazev>Cestovné</nazev><jednotka>km</jednotka><cena_jedn>10</cena_jedn><pocet>dle km</pocet><celkem>dle km</celkem></polozka>',
+    '      <polozka><nazev>Cestovné</nazev><jednotka>km</jednotka><cena_jedn>7.5</cena_jedn><pocet>dle km</pocet><celkem>dle km</celkem></polozka>',
     '    </sekce>',
     '    <sekce nazev="Postprodukce – za 1 video">',
     '      <polozka><nazev>Střih videa + zveřejnění</nazev><jednotka>video</jednotka><cena_jedn>2000</cena_jedn><pocet>1</pocet><celkem>2000</celkem></polozka>',
     '      <polozka><nazev>Hudební podklad + náhledový obrázek</nazev><jednotka>video</jednotka><cena_jedn>1000</cena_jedn><pocet>1</pocet><celkem>1000</celkem></polozka>',
     '      <polozka><nazev>Licence střihacího programu</nazev><jednotka>měsíc</jednotka><cena_jedn>700</cena_jedn><pocet>1</pocet><celkem>700</celkem></polozka>',
-    '      <mezisoucet>3700</mezisoucet>',
+    '      <mezisouctet>3700</mezisouctet>',
     '    </sekce>',
     '    <sekce nazev="Měsíční přehled – standardní rozsah">',
     '      <polozka><nazev>Střih videa + zveřejnění</nazev><jednotka>video</jednotka><cena_jedn>2000</cena_jedn><pocet>4</pocet><celkem>8000</celkem></polozka>',
     '      <polozka><nazev>Hudební podklad + náhledový obrázek</nazev><jednotka>video</jednotka><cena_jedn>1000</cena_jedn><pocet>4</pocet><celkem>4000</celkem></polozka>',
     '      <polozka><nazev>Licence střihacího programu</nazev><jednotka>měsíc</jednotka><cena_jedn>700</cena_jedn><pocet>1</pocet><celkem>700</celkem></polozka>',
-    '      <polozka><nazev>Natáčení na místě</nazev><jednotka>návštěva</jednotka><cena_jedn>8500</cena_jedn><pocet>2</pocet><celkem>17000</celkem></polozka>',
-    '      <polozka><nazev>Cestovné</nazev><jednotka>km</jednotka><cena_jedn>10</cena_jedn><pocet>dle km</pocet><celkem>dle km</celkem></polozka>',
-    '      <celkem_bez_cestovneho>29700</celkem_bez_cestovneho>',
+    '      <polozka><nazev>Natáčení na místě (2× standardně)</nazev><jednotka>návštěva</jednotka><cena_jedn>8500</cena_jedn><pocet>2</pocet><celkem>17000</celkem></polozka>',
+    '      <polozka><nazev>Cestovné</nazev><jednotka>km</jednotka><cena_jedn>7.5</cena_jedn><pocet>dle km</pocet><celkem>dle km</celkem></polozka>',
+    '      <celkem_mesic_bez_cestovneho>29700</celkem_mesic_bez_cestovneho>',
     '    </sekce>',
     '  </polozky>',
     '  <poznamky>',
     '    <poznamka>Ceny bez DPH. Nejsme plátci DPH.</poznamka>',
     '    <poznamka>Standardní počet natáčení: 2× měsíčně, upravitelné dle potřeby.</poznamka>',
-    '    <poznamka>Cestovné: 10 Kč/km, tam i zpět.</poznamka>',
+    '    <poznamka>Cestovné: 7,50 Kč/km, tam i zpět.</poznamka>',
+    '    <poznamka>Cena natáčení: standardně 8 500 Kč/návštěva. V MSK při 1–2 lokalitách: 4 500 Kč/návštěva.</poznamka>',
     '  </poznamky>',
     '</cenova_nabidka>'
   ];
-  dl("stebex-cenova-nabidka-2026.xml","application/xml;charset=utf-8;",x.join("\n"));
+  dl("stebex-cenova-nabidka-2026.xml", "application/xml;charset=utf-8;", lines.join("\n"));
 }
-function dl(n,m,c) { const a=document.createElement("a"); a.href=URL.createObjectURL(new Blob([c],{type:m})); a.download=n; a.click(); }
+
+function exportPDF() {
+  window.print();
+}
+
+function dl(name, mime, content) {
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([content], { type: mime }));
+  a.download = name;
+  a.click();
+}
 </script>
 </body>
-  </html>
+</html>
